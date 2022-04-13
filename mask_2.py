@@ -1,11 +1,19 @@
 import re
-def mask_2():
+import time
+
+
+def mask_2(genome):
+    print(((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))) + \
+          ' Start masking sequences in the reference genome that aligned with sequences of new genes.')
+    old_seq = readfasta(genome)
     readfasta('mask_result_1.txt')
     f = open('output.splign', 'r')
-    b = f.readlines()
+    a = f.readlines()
     f.close()
-    for line in b:
+    f = open('old_sequence_2.txt', 'w')
+    for line in a:
         if 'exon' in line:
+            f.writelines(line)
             if re.findall(r'\|(\d+) *', line) != []:
                 chromo = re.findall(r'\|(\d+) *', line)[0]
             elif re.findall(r'\|.*?\|(.*?)\|', line) != []:
@@ -25,18 +33,23 @@ def mask_2():
                     num = int(num)
                     new = []
                     length = end - start + 1
+                    f.writelines(old_seq[num][start - 1:end] + '\n')
                     global seq
                     for s in seq[num]:
                         new.append(s)
-                    new[start-1:end] = 'K'*length
+                    new[start - 1:end] = 'K' * length
                     seq[num] = ''.join(new)
     sortline(seq)
+    f.close()
     f = open('mask_result_2.txt', 'w')
     i = 0
     while i < len(index):
         f.writelines('>' + index[i] + '\n')
         f.writelines(seq[i] + '\n')
         i += 1
+    f.close()
+    print(((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))) + \
+    ' Done!')
 
 def readfasta(file):
     f = open(file)
@@ -57,6 +70,7 @@ def readfasta(file):
             seqplast += line.replace('\n', '')
     index = index[:-1]
     seq = seq[1:]
+    return(seq)
 
 def chunkstring(string, length):
     return (string[0+i:length+i] for i in range(0, len(string), length))
@@ -67,5 +81,3 @@ def sortline(seq):
         for chunk in chunkstring(seq[seq.index(k)], 60):
             new_k += chunk + '\n'
         seq[seq.index(k)] = new_k
-
-
