@@ -1,10 +1,16 @@
 import re
+import time
+
 def mask_1(genome):
+    print(((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))) + \
+    ' Start masking sequences of duplicated genes in the reference genome.')
     readfasta(genome)
     f = open('places_to_mask.txt', 'r')
     a = f.readlines()
     f.close()
+    f = open('old_sequence_1.txt', 'w')
     for line in a:
+        f.writelines(line)
         match = re.findall(r'(\d+) *', line)
         chromo = match[0]
         start = match[1]
@@ -21,17 +27,22 @@ def mask_1(genome):
                 new = []
                 length = end - start + 1
                 global seq
+                f.writelines(seq[num][start - 1:end] + '\n')
                 for s in seq[num]:
                     new.append(s)
                 new[start - 1:end] = 'K' * length
                 seq[num] = ''.join(new)
     sortline(seq)
+    f.close()
     f = open('mask_result_1.txt', 'w')
     i = 0
     while i < len(index):
         f.writelines('>' + index[i] + '\n')
         f.writelines(seq[i] + '\n')
         i += 1
+    f.close()
+    print(((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))) + \
+    ' Done!')
 
 def readfasta(file):
     f = open(file)
@@ -62,4 +73,3 @@ def sortline(seq):
         for chunk in chunkstring(seq[seq.index(k)], 60):
             new_k += chunk + '\n'
         seq[seq.index(k)] = new_k
-
