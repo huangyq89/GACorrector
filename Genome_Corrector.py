@@ -14,6 +14,8 @@ add_annotation(sys.argv[4], sys.argv[6])
 
 splign(sys.argv[3])
 
-mask_2()
+mask_2(sys.argv[1])
 
 add_genome(sys.argv[3], sys.argv[5])
+
+print('Successfully updated all input sequences!')
