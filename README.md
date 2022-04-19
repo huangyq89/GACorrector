@@ -1,1 +1,1 @@
-# Genome_Corrector_2
+# GACorrector
