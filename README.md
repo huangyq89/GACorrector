@@ -20,6 +20,6 @@ GACorrector是一个基于Python的程序，用于参考基因组和注释的更
     
     python ../GACorrector.py test_genome.fa test_annotation.gtf test_sequence.fasta  test_sequence_annotation.gtf output_genome.fa output_annotation.gtf processed_sequence.fasta
     
-接收的参数依次为`待更新的参考基因组`、`待更新的注释文件`、`create_gtf.py处理过的新基因序列`、`新基因的注释文件`、更新后的参考基因组`、`更新后的注释文件`和`新基因原始序列`。
+接收的参数依次为`待更新的参考基因组`、`待更新的注释文件`、`create_gtf.py处理过的新基因序列`、`新基因的注释文件`、`更新后的参考基因组`、`更新后的注释文件`和`新基因原始序列`。
 
 ## 原理
