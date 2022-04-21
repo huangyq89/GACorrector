@@ -6,17 +6,18 @@ from add_genome import *
 from add_annotation import *
 import sys
 
-find_and_rename(sys.argv[2], sys.argv[4])
+find_and_rename(sys.argv[2], sys.argv[3])
 
 mask_1(sys.argv[1])
 
-add_annotation(sys.argv[5], sys.argv[7])
+add_annotation(sys.argv[4], sys.argv[6])
 
-splign(sys.argv[3])
+if len(sys.argv) == 7:
+    splign(sys.argv[3])
+elif len(sys.argv) == 8:
+    splign(sys.argv[7])
 
 mask_2(sys.argv[1])
 
-add_genome(sys.argv[4], sys.argv[6])
-
-
+add_genome(sys.argv[3], sys.argv[6])
 print('Successfully updated all input sequences!')
