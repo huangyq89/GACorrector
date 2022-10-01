@@ -1,6 +1,7 @@
 # GACorrector
 
 GACorrector是一个基于Python的程序，用于参考基因组和注释的更新。GACorrector的输入文件是待更新的参考基因组、待更新的参考基因组注释文件、用于更新的新基因序列和新基因的注释文件；输出文件是更新后的参考基因组和更新后的参考基因组注释文件。
+
 GACorrector is a Python-based program used to update reference genomes and annotations. GACorrector takes a reference genome, genome annotation, sequences of new gene models and the annotations of new gene models as input; the output is an updated reference genome and and updated genome annotation file.
 
 ## 使用方法
