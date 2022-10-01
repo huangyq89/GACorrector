@@ -15,19 +15,19 @@ In Linux command line, run the following command:
 
 进入`../GACorrector/`目录，执行以下命令解压`tools.tar`包：
 
-enter`../GACorrector/`directory，run the following command to decompress`tools.tar`package:
+Enter`../GACorrector/`directory，run the following command to decompress`tools.tar`package:
 
     tar -xzvf tools.tar
 
 打开测试文件所在目录`../GACorrector/test/`，在命令行执行以下命令：
 
-open the directory with test files`../GACorrector/test/`, run the following command:
+Open the directory with test files`../GACorrector/test/`, run the following command:
 
     python ../create_gtf.py test_sequence.fasta test_sequence_annotation.gtf processed_sequence.fasta
 
 打开测试文件所在目录`../GACorrector/test/`，在命令行执行以下命令：
 
-open the directory with test files`../GACorrector/test/`, run the following command:
+Open the directory with test files`../GACorrector/test/`, run the following command:
 
     python ../GACorrector.py test_genome.fa test_annotation.gtf test_sequence.fasta  test_sequence_annotation.gtf output_genome.fa output_annotation.gtf processed_sequence.fasta
 
