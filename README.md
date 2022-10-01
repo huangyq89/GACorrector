@@ -33,4 +33,4 @@ Open the directory with test files`../GACorrector/test/`, run the following comm
 
 接收的参数依次为`待更新的参考基因组`、`待更新的注释文件`、`create_gtf.py处理过的新基因序列`、`新基因的注释文件`、`更新后的参考基因组`、`更新后的注释文件`和`新基因原始序列`。
 
-Parameters accepted are in order as follows:`reference genome to be updated`、`genome annotation to be updated`、`new gene models sequences processed by create_gtf.py`、`annotation of new gene models`、`updated reference genome`、`updated genome annotation`and`raw sequences of new gene models`。
+Parameters accepted are in order as follows:`reference genome to be updated`、`genome annotation to be updated`、`new gene models sequences processed by create_gtf.py`、`annotation of new gene models`、`updated reference genome`、`updated genome annotation`and`raw sequences of new gene models`.
